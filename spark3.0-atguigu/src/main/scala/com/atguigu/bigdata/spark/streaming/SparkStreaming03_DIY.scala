@@ -3,13 +3,10 @@ package com.atguigu.bigdata.spark.streaming
 import java.util.Random
 
 import org.apache.spark.SparkConf
-import org.apache.spark.rdd.RDD
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.streaming.dstream.ReceiverInputDStream
 import org.apache.spark.streaming.receiver.Receiver
 import org.apache.spark.streaming.{Seconds, StreamingContext}
-
-import scala.collection.mutable
 
 object SparkStreaming03_DIY {
 

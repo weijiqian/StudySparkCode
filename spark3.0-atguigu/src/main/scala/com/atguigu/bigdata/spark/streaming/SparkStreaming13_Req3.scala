@@ -1,14 +1,14 @@
 package com.atguigu.bigdata.spark.streaming
 
-import java.text.SimpleDateFormat
-
-import com.atguigu.bigdata.spark.util.JDBCUtil
 import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord}
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.dstream.InputDStream
 import org.apache.spark.streaming.kafka010.{ConsumerStrategies, KafkaUtils, LocationStrategies}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
+/**
+ * 最近一小时 广告点击量
+ */
 object SparkStreaming13_Req3 {
 
     def main(args: Array[String]): Unit = {

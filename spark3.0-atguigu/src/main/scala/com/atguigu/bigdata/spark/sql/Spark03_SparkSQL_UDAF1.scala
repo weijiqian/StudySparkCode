@@ -1,9 +1,8 @@
 package com.atguigu.bigdata.spark.sql
 
 import org.apache.spark.SparkConf
-import org.apache.spark.sql.expressions.{Aggregator, MutableAggregationBuffer, UserDefinedAggregateFunction}
-import org.apache.spark.sql.types.{DataType, LongType, StructField, StructType}
-import org.apache.spark.sql.{Encoder, Encoders, Row, SparkSession, functions}
+import org.apache.spark.sql.expressions.Aggregator
+import org.apache.spark.sql.{Encoder, Encoders, SparkSession, functions}
 
 object Spark03_SparkSQL_UDAF1 {
 
@@ -59,10 +58,10 @@ object Spark03_SparkSQL_UDAF1 {
             buff.total / buff.count
         }
 
-        // 缓冲区的编码操作
+        // 缓冲区的编码操作  自己的类 固定写法
         override def bufferEncoder: Encoder[Buff] = Encoders.product
 
-        // 输出的编码操作
+        // 输出的编码操作  基本类 固定写法
         override def outputEncoder: Encoder[Long] = Encoders.scalaLong
     }
 }

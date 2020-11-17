@@ -2,8 +2,9 @@ package com.atguigu.bigdata.spark.sql
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.expressions.Aggregator
-import org.apache.spark.sql.{Dataset, Encoder, Encoders, SparkSession, TypedColumn, functions}
+import org.apache.spark.sql._
 
+//早期版本中，spark不能在sql中使用强类型UDAF操作
 object Spark03_SparkSQL_UDAF2 {
 
     def main(args: Array[String]): Unit = {
@@ -19,7 +20,7 @@ object Spark03_SparkSQL_UDAF2 {
         // 早期的UDAF强类型聚合函数使用DSL语法操作
         val ds: Dataset[User] = df.as[User]
 
-        // 将UDAF函数转换为查询的列对象
+        // 将UDAF函数转换为查询的列对象 把一行当做输入.
         val udafCol: TypedColumn[User, Long] = new MyAvgUDAF().toColumn
 
         ds.select(udafCol).show

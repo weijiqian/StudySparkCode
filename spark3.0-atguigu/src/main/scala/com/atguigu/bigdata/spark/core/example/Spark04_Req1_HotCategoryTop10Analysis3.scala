@@ -1,4 +1,4 @@
-package com.atguigu.bigdata.spark.core.req
+package com.atguigu.bigdata.spark.core.example
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.util.AccumulatorV2
